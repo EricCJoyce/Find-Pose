@@ -234,8 +234,19 @@ def main():
 				y2 = obj.faces[triangle].t2D[1][1]
 				x3 = obj.faces[triangle].t2D[2][0]					#  Third point defining the 2D texmap triangle
 				y3 = obj.faces[triangle].t2D[2][1]
-				lambda1 = ((y2 - y3) * (x - x3) + (x3 - x2) * (y - y3)) / ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3))
-				lambda2 = ((y3 - y1) * (x - x3) + (x1 - x3) * (y - y3)) / ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3))
+																	#  Guard against zero-division
+				denom = ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3))
+				if denom == 0.0:
+					lambda1 = 0.0
+				else:
+					lambda1 = ((y2 - y3) * (x - x3) + (x3 - x2) * (y - y3)) / denom
+																	#  Guard against zero-division
+				denom = ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3))
+				if denom == 0.0:
+					lambda2 = 0.0
+				else:
+					lambda2 = ((y3 - y1) * (x - x3) + (x1 - x3) * (y - y3)) / denom
+
 				lambda3 = 1.0 - lambda1 - lambda2
 																	#  The corresponding 3D point is under comparable influences
 																	#  from corners as its 2D counterpart.
