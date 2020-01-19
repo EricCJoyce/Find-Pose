@@ -205,7 +205,7 @@ def main():
 	#  (photo_x, photo_y), (computed_x, computed_y, computed_z)
 	#  That's a point in the 2D photograph and its corresponding point in the 3D mesh by way of the 2D texmap.
 	if params['verbose']:
-		print('>>> Locating 2D features in 3D space')
+		print('>>> Locating ' + str(len(features)) + ' 2D features in 3D space')
 
 	correspondences2_3 = []											#  To be a list of 2D-->3D correspondences
 	if not os.path.exists('correspondences.txt'):					#  No pre-computed list of 2D-->3D exists
