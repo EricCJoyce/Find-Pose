@@ -186,3 +186,18 @@ Redundant vertices may exist "triangle soup," that is, distinct vertices in the 
 
 ### `-?`, `-help`, `--help` Help!
 Display some notes on how to use this script.
+
+## Citation
+
+If this code was helpful for your research, please consider citing this repository.
+
+```
+@misc{find-pose_2019,
+  title={Find-Pose},
+  author={Eric C. Joyce},
+  year={2019},
+  publisher={Github},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/EricCJoyce/Find-Pose}}
+}
+```
